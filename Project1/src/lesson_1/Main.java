@@ -1,3 +1,5 @@
+package lesson_1;
+
 public class Main {
     public static void main(String[] args) {
 //        System.out.println("Hello world!");
@@ -130,10 +132,21 @@ public class Main {
 //        System.out.println(c);  // 9
 
 
-        int a = 1;
-        int b = 2;
-        int c = a + 5 * b++;  // 1 + 5 * 2
-//        int c = (a + 5) * ++b;  // (1 + 5) * 3
-        System.out.println(c);
+//        int a = 1;
+//        int b = 2;
+//        int c = a + 5 * b++;  // 1 + 5 * 2
+////        int c = (a + 5) * ++b;  // (1 + 5) * 3
+//        System.out.println(c);
+
+//        System.out.println(5 + "Hello World");
+
+//        int x = 5;
+//        byte y = (byte) x;
+//        System.out.println(y);
+
+//        double x = 5.9;
+//        int y = (int) x;
+//        System.out.println(y);
+
     }
 }
