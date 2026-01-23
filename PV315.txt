@@ -29,3 +29,49 @@ _ _ _ _ _ _ _
 
 n u m =           4 5 6
 _ _ _ _ _ _   _ _ _ _ _
+
+git init
+
+git status
+
+git add -A
+		--all
+		.
+
+git commit -m "first commit"	
+
+00000000 00000000 00000001 00000010
+00000010
+
+nextInt()
+nextByte()
+nextShort()
+nextFloat()
+nextDouble()
+
+next()  - одно слово до пробела
+nextLine() - вся строка
+
+"\n"
+
+1) диапазон от 0 по 9
+2)
+
+1 - ворона
+2, 3, 4 - вороны
+5-9, 0 - ворон
+
+1, 21, 31
+11
+
+5 = 12, 11, 10
+4 = 9, 8, 7
+3 = 6, 5, 4
+2 = 3, 2, 1
+
+Math.random()*(max-min) + min
+Math.random()*(3-0) + 0
+Math.random()*(7-2) + 2
+
+Math.random()*(5-(-5)) + (-5)
+Math.random()*(10) - 5)
