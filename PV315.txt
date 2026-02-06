@@ -75,3 +75,15 @@ Math.random()*(7-2) + 2
 
 Math.random()*(5-(-5)) + (-5)
 Math.random()*(10) - 5)
+
+!5 = 1*2*3*4*5 = 120
+
+https://www.oracle.com/java/technologies/downloads
+
+StringBuilder (StringBuffer)
+
+Generics (Обобщения)
+
+Функциональный интерфейс
+
+
