@@ -109,3 +109,6 @@ null             указатель на объект
 Stream API
 
 JDBC (Java Database Connectivity)
+
+Statement
+PreparedStatment

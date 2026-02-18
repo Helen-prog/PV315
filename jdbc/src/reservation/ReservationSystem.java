@@ -30,6 +30,15 @@ public class ReservationSystem {
                     case 2:
                         viewReservations(connection);
                         break;
+                    case 3:
+                        getRoomNumber(connection, sc);
+                        break;
+                    case 4:
+                        updateReservation(connection, sc);
+                        break;
+                    case 5:
+                        deleteReservation(connection, sc);
+                        break;
                     case 0:
                         exit();
                         return;
@@ -39,6 +48,84 @@ public class ReservationSystem {
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+    }
+
+    private static void deleteReservation(Connection connection, Scanner sc) {
+        System.out.print("Введите идентификатор бронирования для удаления: ");
+        int reservationId = sc.nextInt();
+
+        if (!reservationExists(connection, reservationId)) {
+            System.out.println("Бронирование не найдено для данного идентификатора");
+            return;
+        }
+
+        String sql = "DELETE FROM reservations WHERE reservation_id = " + reservationId;
+
+        try (Statement statement = connection.createStatement()) {
+            int row = statement.executeUpdate(sql);
+
+            if(row > 0) {
+                System.out.println("Бронирование успешно удалено");
+            }else {
+                System.out.println("Удаление резервирования не удалось");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void updateReservation(Connection connection, Scanner sc) {
+        System.out.print("Введите идентификатор бронирования для обновления: ");
+        int reservationId = sc.nextInt();
+
+        if (!reservationExists(connection, reservationId)) {
+            System.out.println("Бронирование не найдено для данного идентификатора");
+            return;
+        }
+        sc.nextLine();
+        System.out.print("Введите новое имя гостя: ");
+        String newGuestName = sc.nextLine();
+        System.out.print("Введите новый номер комнаты: ");
+        int newRoomNumber = sc.nextInt();
+        System.out.print("Введите новый контактный номер: ");
+        String newContactNumber = sc.next();
+
+        String sql = "UPDATE reservations SET guest_name='" + newGuestName + "', room_number=" + newRoomNumber + ",  contact_number='" + newContactNumber + "' WHERE reservation_id=" + reservationId;
+
+        try (Statement statement = connection.createStatement()) {
+            int row = statement.executeUpdate(sql);
+
+            if (row > 0) {
+                System.out.println("Бронирование успешно обновлено!");
+            } else {
+                System.out.println("Обновление резервирования не удалось.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void getRoomNumber(Connection connection, Scanner sc) {
+        System.out.print("Введите идентификатор бронирования: ");
+        int reservationId = sc.nextInt();
+        System.out.print("Введите имя гостя: ");
+        String guestName = sc.next();
+
+        String sql = "SELECT room_number FROM reservations WHERE reservation_id = " + reservationId + " AND guest_name = '" + guestName + "'";
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+
+            if (resultSet.next()) {
+                int roomNumber = resultSet.getInt("room_number");
+                System.out.println("Номер комнаты для идентификатора бронирования " + reservationId + " и гостя " + guestName + "  является: " + roomNumber);
+            } else {
+                System.out.println("Бронирование не найдено для данного идентификатора и имени гостя.");
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
     }
 
@@ -90,5 +177,17 @@ public class ReservationSystem {
     public static void exit() {
         System.out.println("Выход из системы");
         System.out.println("Спасибо за использования системы бронирования отеля!!!");
+    }
+
+    private static boolean reservationExists(Connection connection, int reservationId) {
+        String sql = "SELECT reservation_id FROM reservations WHERE reservation_id = " + reservationId;
+
+        try (Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(sql)) {
+            return resultSet.next();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }
