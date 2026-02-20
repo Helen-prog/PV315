@@ -112,3 +112,16 @@ JDBC (Java Database Connectivity)
 
 Statement
 PreparedStatment
+
+Maven
+
+Java EE - Java Enterprise Edition
+
+Java SE - Java Standart Edition
+
+
+Java EE 8 (август 2017)
+Jakarta EE 8 (сентября 2019)
+
+Сервлеты
+
