@@ -175,3 +175,12 @@ footer{
 .admin__element p{
     font-size: 24px;
 }
+
+.btn-doctor{
+    position: absolute;
+    bottom: 20px;
+}
+
+.doctor{
+    margin-top: 20px;
+}

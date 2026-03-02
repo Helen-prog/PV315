@@ -9,7 +9,7 @@
 <jsp:include page="navbar.jsp"/>
 
 <c:if test="${empty adminObj}">
-    <c:redirect url="../admin_login.jsp" />
+    <c:redirect url="../admin_login.jsp"/>
 </c:if>
 
 <section class="admin">
@@ -18,11 +18,11 @@
 
         <c:if test="${not empty sucMsg}">
             <p class="center text-success fs-3">${sucMsg}</p>
-            <c:remove var="sucMsg" scope="session" />
+            <c:remove var="sucMsg" scope="session"/>
         </c:if>
         <c:if test="${not empty errorMsg}">
             <p class="center text-danger fs-3">${errorMsg}</p>
-            <c:remove var="errorMsg" scope="session" />
+            <c:remove var="errorMsg" scope="session"/>
         </c:if>
 
         <div class="admin__block">
@@ -48,9 +48,9 @@
             </div>
         </div>
         <!-- Button trigger modal -->
-<%--        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">--%>
-<%--            Launch demo modal--%>
-<%--        </button>--%>
+        <%--        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">--%>
+        <%--            Launch demo modal--%>
+        <%--        </button>--%>
 
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,13 +60,19 @@
                         <h1 class="modal-title fs-5" id="exampleModalLabel">Специалист</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
-                        <button type="button" class="btn btn-primary">Сохранить</button>
-                    </div>
+                    <form action="../addSpecialist" method="post">
+                        <div class="modal-body">
+
+                            <div class="form-group">
+                                <label for="spec">Введите имя специалиста</label>
+                                <input type="text" name="specName" class="form-control" id="spec">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button class="btn btn-primary">Добавить</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
