@@ -5,6 +5,7 @@ import org.ee.jakarta.hospitalsystem.entity.User;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class UserDao {
     private Connection conn;
@@ -53,5 +54,43 @@ public class UserDao {
         }
 
         return user;
+    }
+
+    public boolean checkOldPassword(int userId, String oldPassword) {
+        boolean flag = false;
+
+        try{
+            String sql = "select * from user_dtls where id = ? and password = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, userId);
+            ps.setString(2, oldPassword);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
+
+    public boolean changePassword(int userId, String newPassword) {
+        boolean flag = false;
+
+        try{
+            String sql = "update user_dtls set password = ? where id = ?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, newPassword);
+            ps.setInt(2, userId);
+            int row = ps.executeUpdate();
+            if (row == 1) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return flag;
     }
 }

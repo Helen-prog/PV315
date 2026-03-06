@@ -140,4 +140,173 @@ public class DoctorDao {
 
         return flag;
     }
+
+    public Doctor login(String email, String password) {
+        Doctor doctor = null;
+
+        try{
+            String sql = "select * from doctor where email=? and password=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                doctor = new Doctor();
+                doctor.setId(rs.getInt(1));
+                doctor.setFullName(rs.getString(2));
+                doctor.setDob(rs.getString(3));
+                doctor.setQualification(rs.getString(4));
+                doctor.setSpecialist(rs.getString(5));
+                doctor.setEmail(rs.getString(6));
+                doctor.setMobNo(rs.getString(7));
+                doctor.setPassword(rs.getString(8));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return doctor;
+    }
+
+    public int countDoctors() {
+        int count = 0;
+
+        try {
+            String sql = "select * from doctor";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int countAppointment() {
+        int count = 0;
+
+        try {
+            String sql = "select * from appointment";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int countUser() {
+        int count = 0;
+
+        try {
+            String sql = "select * from user_dtls";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int countSpecialist() {
+        int count = 0;
+
+        try {
+            String sql = "select * from specialist";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int countAppointmentByDoctorId(int did){
+        int count = 0;
+
+        try {
+            String sql = "select * from appointment where doctor_id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, did);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                count++;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public boolean checkOldPassword(int userId, String oldPassword) {
+        boolean flag = false;
+
+        try{
+            String sql = "select * from doctor where id=? and password=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, userId);
+            ps.setString(2, oldPassword);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+    public  boolean changePassword(int userId, String oldPassword) {
+        boolean flag = false;
+
+        try{
+            String sql = "update doctor set password=? where id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, oldPassword);
+            ps.setInt(2, userId);
+            int row = ps.executeUpdate();
+            if(row == 1) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
+
+    public boolean editDoctorProfile(Doctor doctor) {
+        boolean flag = false;
+
+        try{
+            String sql = "update doctor set full_name=?, dob=?, specialist=?, email=?, mobno=? where id=?";
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, doctor.getFullName());
+            ps.setString(2, doctor.getDob());
+            ps.setString(3, doctor.getSpecialist());
+            ps.setString(4, doctor.getEmail());
+            ps.setString(5, doctor.getMobNo());
+            ps.setInt(6, doctor.getId());
+
+            int row = ps.executeUpdate();
+            if(row == 1) {
+                flag = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return flag;
+    }
 }

@@ -119,7 +119,7 @@
                 <td><%= s.getMobNo() %></td>
                 <td>
                     <a href="edit_doctor.jsp?id=<%= s.getId() %>" class="btn btn-sm btn-info">Изменить</a>
-                    <a href="#" class="btn btn-sm btn-danger">Удалить</a>
+                    <a href="../deleteDoctor?id=<%= s.getId() %>" class="btn btn-sm btn-danger">Удалить</a>
                 </td>
             </tr>
             <% } %>

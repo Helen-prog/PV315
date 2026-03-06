@@ -125,3 +125,27 @@ Jakarta EE 8 (сентября 2019)
 
 Сервлеты
 
+http://localhost:8080/first?param1=30&param2=29&age=18&name=Andrey&name=Petr
+
+mysql connector => MySQL Connector/J
+
+
+JSP - Java Server Page
+
+Expression Language
+
+Jakarta Standard Tag Library (JSTL)
+
+Jakarta Standard Tag Library Implementation
+Jakarta Standard Tag Library API
+
+Core => "c"
+
+
+dao (Data Access Object)
+
+Spring
+
+Spring Context
+
+Spring Web MVC

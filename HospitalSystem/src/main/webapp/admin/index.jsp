@@ -1,3 +1,5 @@
+<%@ page import="org.ee.jakarta.hospitalsystem.dao.DoctorDao" %>
+<%@ page import="org.ee.jakarta.hospitalsystem.db.DBConnect" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 <html>
@@ -25,26 +27,30 @@
             <c:remove var="errorMsg" scope="session"/>
         </c:if>
 
+        <%
+            DoctorDao dao = new DoctorDao(DBConnect.getConn());
+        %>
+
         <div class="admin__block">
             <div class="admin__element">
                 <img src="../img/admin_1.png" alt="">
                 <h3>Врач</h3>
-                <p>5</p>
+                <p><%= dao.countDoctors() %></p>
             </div>
             <div class="admin__element">
                 <img src="../img/admin_2.png" alt="">
                 <h3>Пациенты</h3>
-                <p>45</p>
+                <p><%= dao.countUser() %></p>
             </div>
             <div class="admin__element">
                 <img src="../img/admin_3.png" alt="">
                 <h3>Общее</h3>
-                <p>456</p>
+                <p><%= dao.countAppointment() %></p>
             </div>
             <div class="admin__element" data-bs-target="#exampleModal" data-bs-toggle="modal">
                 <img src="../img/admin_4.png" alt="">
                 <h3>Специалист</h3>
-                <p>34</p>
+                <p><%= dao.countSpecialist() %></p>
             </div>
         </div>
         <!-- Button trigger modal -->
