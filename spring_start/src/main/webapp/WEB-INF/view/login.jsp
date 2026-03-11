@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Helen
-  Date: 2026-03-06
-  Time: 21:16
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -12,5 +6,16 @@
 </head>
 <body>
   <h1>Страница авторизации</h1>
+
+<%--    <%--%>
+<%--        String address = (String) request.getAttribute("address");--%>
+<%--        Integer house = (Integer) request.getAttribute("house");--%>
+<%--    %>--%>
+
+<%--<h4>Address: <%= address %></h4>--%>
+<%--<h4>House: <%= house %></h4>--%>
+
+  <h4>Address: ${address} </h4>
+  <h4>House: ${house} </h4>
 </body>
 </html>

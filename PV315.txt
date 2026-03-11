@@ -149,3 +149,37 @@ Spring
 Spring Context
 
 Spring Web MVC
+
+Spring jdbc
+
+Hibernate
+
+hibernate.cfg.xml
+
+"-//Hibernate/Hibernate Configuration DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"
+
+Uni-directional
+Bi-directional
+
+@OneToOne
+
+@OneToMany
+@ManyToOne
+
+@ManyToMany
+
+
+Thymeleaf
+
+${...}: variable expressions
+*{...}: selection expressions
+#{...}: message expressions
+@{...}: link expressions
+~{...}: fragment expressions
+
+
+
+
+
+
