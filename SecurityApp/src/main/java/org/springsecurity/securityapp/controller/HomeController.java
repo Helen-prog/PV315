@@ -25,4 +25,14 @@ public class HomeController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/logout")
+    public String logout() {
+        return "logout";
+    }
+
+    @GetMapping("/invalid")
+    public String invalid() {
+        return "error";
+    }
 }
