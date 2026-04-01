@@ -12,10 +12,88 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Вернуться назад"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="280dp"
         android:onClick="goBack"
+        android:background="@drawable/btn3"
+        android:paddingHorizontal="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/buttonImg1"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/button"-->
+<!--        app:srcCompat="@drawable/img_1" />-->
+
+<!--    <ImageButton-->
+<!--        android:id="@+id/buttonImg2"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/buttonImg1"-->
+<!--        app:srcCompat="@drawable/img_2" />-->
+
+    <Button
+        android:id="@+id/buttonStop"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:text="Остановить"
+        android:background="@drawable/btn4"
+        android:textColor="@color/white"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"  />
+
+
+
+
+    <ImageView
+        android:id="@+id/boy_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/my_animation" />
+
+    <Button
+        android:id="@+id/rotateCenter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Вращение относительно центра"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <ImageView
+        android:id="@+id/boy_image_0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rotateCenter"
+        app:srcCompat="@drawable/boy_0" />
+
+    <Button
+        android:id="@+id/rotateCorner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Вращение относительно угла"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/boy_image_0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

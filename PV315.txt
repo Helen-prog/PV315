@@ -179,7 +179,12 @@ ${...}: variable expressions
 ~{...}: fragment expressions
 
 
+th:if
+th:unless
+
+http://localhost:8080/logout
 
 
+Intent (намерение)
 
 
