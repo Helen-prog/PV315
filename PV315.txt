@@ -187,4 +187,6 @@ http://localhost:8080/logout
 
 Intent (намерение)
 
+SharedPreferences 
+
 
