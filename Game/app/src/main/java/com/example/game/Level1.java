@@ -3,6 +3,7 @@ package com.example.game;
 import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -182,6 +183,13 @@ public class Level1 extends AppCompatActivity {
                     }
                     if (count == 20) {
                         // выход из уровня
+                        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+                        final int level = save.getInt("Level", 1);
+                        if(level <= 1){
+                            SharedPreferences.Editor editor = save.edit();
+                            editor.putInt("Level", 2);
+                            editor.apply();
+                        }
                         dialogEnd.show();
                     } else {
                         numLeft = random.nextInt(10);
@@ -250,6 +258,13 @@ public class Level1 extends AppCompatActivity {
                     }
                     if (count == 20) {
                         // выход из уровня
+                        SharedPreferences save = getSharedPreferences("Save", MODE_PRIVATE);
+                        final int level = save.getInt("Level", 1);
+                        if(level <= 1){
+                            SharedPreferences.Editor editor = save.edit();
+                            editor.putInt("Level", 2);
+                            editor.apply();
+                        }
                         dialogEnd.show();
                     } else {
                         numLeft = random.nextInt(10);

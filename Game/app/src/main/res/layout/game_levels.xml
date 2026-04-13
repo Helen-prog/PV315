@@ -44,6 +44,23 @@
                     android:textAllCaps="false"
                     android:background="@drawable/button_stroke_black_opacity_press_white"
                     android:text="@string/back" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    />
+
+                <Button
+                    android:id="@+id/button_reset"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:paddingHorizontal="20dp"
+                    android:textSize="24sp"
+                    android:textAllCaps="false"
+                    android:background="@drawable/button_stroke_black_opacity_press_white"
+                    android:text="@string/reset" />
             </LinearLayout>
 
             <ScrollView
